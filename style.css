@@ -295,6 +295,20 @@ td {
   display: none;
 }
 
+.filter {
+  background-color: #1e1f21;
+  border-top: 1px solid rgba(249, 249, 249, 0.25);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#team-list {
+  margin-left: 15px;
+}
+
 /* footer */
 footer {
   background-color: #1e1f21;
