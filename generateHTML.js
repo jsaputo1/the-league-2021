@@ -62,3 +62,29 @@ const generateAllFixtures = (final) => {
 <hr>
 `);
 };
+
+const generateSemi = () => {
+  $(".semi-finals").append(`
+    <div class="playoff-matchup">
+      <h1 class="game-number">Game ${gameNumber}</h1>
+      <div class="playoff-info">
+          <div class="playoff-team">
+            <figure><img src="${homeLogo}"></figure>
+            <div class="playoff-matchup-text">
+                <h3>${homeTeam}</h3>
+            </div>
+          </div>
+          <h2>${homeScore}</h2>
+      </div>
+      <div class="playoff-info">
+        <div class="playoff-team">
+          <figure><img src="${awayLogo}"></figure>
+          <div class="playoff-matchup-text">
+              <h3>${awayTeam}</h3>
+          </div>
+        </div>
+        <h2>${awayScore}</h2>
+      </div>
+    </div>
+  `);
+};

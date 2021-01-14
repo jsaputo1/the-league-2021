@@ -12,7 +12,7 @@ $(function () {
         draw = value.t;
         loss = value.l;
         gd = value.gd;
-        teamImage = determineTeamImage(teamName)
+        teamImage = determineTeamImage(teamName);
 
         $("#standings").append(`
              <tr>
@@ -39,8 +39,8 @@ $(function () {
         homeScore = value.home_score;
         awayTeam = value.away_team;
         homeTeam = value.home_team;
-        homeLogo = determineTeamImage(homeTeam)
-        awayLogo = determineTeamImage(awayTeam)
+        homeLogo = determineTeamImage(homeTeam);
+        awayLogo = determineTeamImage(awayTeam);
         homeResult = '';
         awayResult = '';
 
@@ -51,11 +51,11 @@ $(function () {
         }
 
         if (homeTeam && awayTeam != null && awayScore + homeScore <= 0) {
-          generatePending()
+          generatePending();
         }
 
         if (homeTeam && awayTeam != null && awayScore || homeScore > 0) {
-          generateFinal()
+          generateFinal();
         }
       });
     }
@@ -79,8 +79,8 @@ $(function () {
           homeScore = value.home_score;
           awayTeam = value.away_team;
           homeTeam = value.home_team;
-          homeLogo = determineTeamImage(homeTeam)
-          awayLogo = determineTeamImage(awayTeam)
+          homeLogo = determineTeamImage(homeTeam);
+          awayLogo = determineTeamImage(awayTeam);
 
           homeResult = '';
           awayResult = '';
@@ -97,11 +97,45 @@ $(function () {
           }
 
           if (userInput === homeTeam || userInput === awayTeam) {
-            generateAllFixtures(final)
+            generateAllFixtures(final);
           }
         });
       }
     });
   });
+
+  $.ajax({
+    url: `https://sheet.best/api/sheets/b6e9e463-5acb-46c6-b1e7-14915d5893ea/tabs/CL`,
+    dataType: 'json',
+    success: function (results) {
+      $.each(results, function (index, value) {
+        homeTeam = value.home_team;
+        awayTeam = value.away_team;
+        homeLogo = determineTeamImage(homeTeam);
+        awayLogo = determineTeamImage(awayTeam);
+        homeScore = value.home_score;
+        awayScore = value.away_score;
+        gameNumber = value.game_number;
+        round = value.round;
+        // awayTotalScore = value.away_total_score;
+        // homeTotalScore = value.home_total_score;
+        // winner = determineWinner (homeTotalScore, awayTotalScore, homeTeam, awayTeam)
+        // winningScore = awayScore
+        // losingScore = homeScore
+        // if (winner === homeTeam) {
+        //   winningScore = homeTotalScore
+        //   losingScore = awayto
+        // } 
+        
+        if (homeTeam && awayTeam && gameNumber != null) {
+          generateSemi();
+        }
+      });
+    }
+  });
+
+
+
+
 
 });
