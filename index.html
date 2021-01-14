@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fifa 21 The League" />
+  <meta property="og:image" content="/theleague-logo.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>The FIFA League</title>
+</head>
+
+<body>
+  <header>
+    <figure><img src="images/theleague-logo.png"></figure>
+    <ul>
+      <li class="groups-menu" id="active">Table</li></a>
+      <li class="dash">|</li>
+      <li class="fixtures-menu">Fixtures</li>
+    </ul>
+  </header>
+
+  <section class="standings">
+    <h1 class="center-text">Fifa League - Standings</h1>
+    <div class="group-standings">
+      <table id="group" class="tablesorter">
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>GP</th>
+            <th>W-D-L</th>
+            <th>PTS</th>
+            <th>GD</th>
+          </tr>
+        </thead>
+          <tbody id="standings">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="fixtures">
+    <div class="fixtures-pending">
+    </div>
+    <div class="fixtures-final">
+    </div>
+  </section>
+
+  <footer>
+    <p>Copyright &copy TheLeague. All Rights Reserved.</p>
+  </footer>
+  <script src="https://kit.fontawesome.com/e785bdc78c.js" crossorigin="anonymous"></script>
+  <script src="api.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
