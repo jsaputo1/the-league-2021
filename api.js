@@ -64,7 +64,6 @@ $(function () {
 
   $(".filter").on("change", function () {
     let userInput = $("select").val();
-    console.log("input:", userInput);
     $('.fixtures-pending').empty();
     $('.fixtures-final').empty();
 
@@ -99,6 +98,16 @@ $(function () {
           if (userInput === homeTeam || userInput === awayTeam) {
             generateAllFixtures(final);
           }
+
+          if (userInput === 'all' && homeTeam && awayTeam != null && awayScore + homeScore <= 0) {
+            generatePending();
+          }
+  
+          if (userInput === 'all' && homeTeam && awayTeam != null && awayScore || homeScore > 0) {
+            generateFinal();
+          }
+
+
         });
       }
     });

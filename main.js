@@ -21,6 +21,7 @@ $(function () {
   $('.playoffs-menu').on('click', function() {
     $('.playoffs-menu').attr('id', 'active');
     $('.fixtures-menu').attr('id', '');
+    $('.groups-menu').attr('id', '');
     $('.playoffs').css('display', 'block');
     $('.fixtures').css('display', 'none')
     $('.standings').css('display', 'none')
