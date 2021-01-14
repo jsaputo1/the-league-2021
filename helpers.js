@@ -35,3 +35,17 @@ const generateStandings = () => {
      </tr>
 `);
 };
+
+// const determineWinner = (homeScore, awayScore, homeTeam, awayTeam) => {
+//   winner = [];
+//   winningScore = [];
+//   if (homeScore === awayScore) {
+//     winner = `Tied`;
+//   }
+//   else if (homeScore > awayScore) {
+//     winner = `${homeTeam} leads`;
+//   } else {
+//     winner = `${awayTeam} leads`;
+//   }
+//   return winner;
+// };
