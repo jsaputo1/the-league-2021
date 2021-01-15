@@ -212,6 +212,7 @@ header a:visited {
 }
 .matchup p {
   padding: 3px 0;
+  margin-bottom: 3px;
 }
 
 .teams {
@@ -219,7 +220,8 @@ header a:visited {
 }
 
 .team-name-fixtures {
-  text-align: left;
+  display: flex;
+  align-items: center;
 }
 .team-name-fixtures img {
   width: 16px;
@@ -237,7 +239,6 @@ header a:visited {
 hr {
   opacity: 0.15;
   color: #f9f9f9;
-  margin-top: 0px;
 }
 
 .loser {
@@ -304,6 +305,7 @@ td {
   align-items: center;
   font-size: 15px;
   font-weight: 500;
+  margin-bottom: 7px;
 }
 
 #team-list {
