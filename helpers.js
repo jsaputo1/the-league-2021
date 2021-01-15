@@ -23,29 +23,3 @@ const determineTeamImage = (teamName) => {
     teamImage = 'images/roma.png';
   } return teamImage;
 };
-
-const generateStandings = () => {
-  $("#standings").append(`
-    <tr>
-       <td class="team-name"><img src="${teamImage}">${teamName}</td>
-       <td>${gamesPlayed}</td>
-       <td>${wins}-${draw}-${loss}</td>
-       <td>${pts}</td>
-       <td>${gd}</td>
-     </tr>
-`);
-};
-
-// const determineWinner = (homeScore, awayScore, homeTeam, awayTeam) => {
-//   winner = [];
-//   winningScore = [];
-//   if (homeScore === awayScore) {
-//     winner = `Tied`;
-//   }
-//   else if (homeScore > awayScore) {
-//     winner = `${homeTeam} leads`;
-//   } else {
-//     winner = `${awayTeam} leads`;
-//   }
-//   return winner;
-// };
