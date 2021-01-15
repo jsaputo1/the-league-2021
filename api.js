@@ -98,7 +98,11 @@ $(function () {
 
           if (homeTeam && awayTeam != null) {
             if (userInput === homeTeam || userInput === awayTeam) {
-              generateAllFixtures(final);
+              if (awayScore + homeScore <= 0) {
+                generatePending();
+              } else {
+                generateFinal();
+              }
             }
             if (userInput === 'all' && awayScore + homeScore <= 0) {
               generatePending();
