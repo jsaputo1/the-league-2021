@@ -25,6 +25,7 @@ $(function () {
     $('.playoffs').css('display', 'block');
     $('.fixtures').css('display', 'none')
     $('.standings').css('display', 'none')
+    $(".score:contains('null')").css('display', 'none');  
   });
 
 

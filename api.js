@@ -13,16 +13,8 @@ $(function () {
         loss = value.l;
         gd = value.gd;
         teamImage = determineTeamImage(teamName);
+        generateStandings();
 
-        $("#standings").append(`
-             <tr>
-                <td class="team-name"><img src="${teamImage}">${teamName}</td>
-                <td>${gamesPlayed}</td>
-                <td>${wins}-${draw}-${loss}</td>
-                <td>${pts}</td>
-                <td>${gd}</td>
-              </tr>
-         `);
       });
     }
   });
@@ -117,7 +109,7 @@ $(function () {
   });
 
   $.ajax({
-    url: `https://sheet.best/api/sheets/b6e9e463-5acb-46c6-b1e7-14915d5893ea/tabs/CL`,
+    url: `https://sheet.best/api/sheets/b6e9e463-5acb-46c6-b1e7-14915d5893ea/tabs/CL?_raw=1`,
     dataType: 'json',
     success: function (results) {
       $.each(results, function (index, value) {
@@ -128,25 +120,25 @@ $(function () {
         homeScore = value.home_score;
         awayScore = value.away_score;
         gameNumber = value.game_number;
-        round = value.round;
-        // awayTotalScore = value.away_total_score;
-        // homeTotalScore = value.home_total_score;
-        // winner = determineWinner (homeTotalScore, awayTotalScore, homeTeam, awayTeam)
-        // winningScore = awayScore
-        // losingScore = homeScore
-        // if (winner === homeTeam) {
-        //   winningScore = homeTotalScore
-        //   losingScore = awayto
-        // } 
+        winner = value.winner;
+        winnerScore = value.winner_score;
+        loserScore = value.loser_score;
+        winnerMessage = `${winner} is winning ${winnerScore}-${loserScore} on aggregate`;
 
-        if (homeTeam && awayTeam && gameNumber != null) {
+        if (winnerScore === loserScore && winnerScore != null) {
+          winnerMessage = `Tied ${winnerScore}-${loserScore} on aggregate`;
+        }
+
+        if (winnerScore === null) {
+          winnerMessage = `Official Matchups TDB`;
+        }
+
+        if (homeTeam && awayTeam && gameNumber != 'total' && gameNumber != 'final') {
           generateSemi();
         }
       });
     }
   });
-
-
 
 
 
