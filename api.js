@@ -95,19 +95,18 @@ $(function () {
             final = 'Final';
           }
 
-          if (userInput === homeTeam || userInput === awayTeam) {
-            generateAllFixtures(final);
-          }
 
-          if (userInput === 'all' && homeTeam && awayTeam != null && awayScore + homeScore <= 0) {
-            generatePending();
+          if (homeTeam && awayTeam != null) {
+            if (userInput === homeTeam || userInput === awayTeam) {
+              generateAllFixtures(final);
+            }
+            if (userInput === 'all' && awayScore + homeScore <= 0) {
+              generatePending();
+            }
+            if (userInput === 'all' && awayScore + homeScore > 0) {
+              generateFinal();
+            }
           }
-  
-          if (userInput === 'all' && homeTeam && awayTeam != null && awayScore || homeScore > 0) {
-            generateFinal();
-          }
-
-
         });
       }
     });
@@ -135,7 +134,7 @@ $(function () {
         //   winningScore = homeTotalScore
         //   losingScore = awayto
         // } 
-        
+
         if (homeTeam && awayTeam && gameNumber != null) {
           generateSemi();
         }

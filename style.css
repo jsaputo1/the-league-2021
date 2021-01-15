@@ -364,6 +364,10 @@ footer p {
   margin: 10px 0px;
 }
 
+.playoff-matchup-text h3 {
+  padding-top: 5px;
+}
+
 .playoff-info {
   display: flex;
   justify-content: space-between;
